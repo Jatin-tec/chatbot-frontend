@@ -1,24 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import { useState } from "react";
+import Chats from "./Chats";
+import "./App.css";
 function App() {
+  const [inputText, setInputText]=useState("");
+  function handlechange(event){
+    const Task= event.target.value;
+    setInputText(Task);
+  }
+  
+  const [items, setItems]=useState([]);
+  function Add(){
+    setItems(prevItems => {
+      return [inputText,...prevItems];
+    });
+    setInputText("");
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="Main-Cointainer">
+   <div className="Content">
+    <div className="Main-Cointent">
+
+    {items.map(chat => (
+            <Chats
+            text={chat}
+            />
+          ))}
+
+     
     </div>
+   
+    
+   </div>
+   
+   <div className="InputChatFeild">
+    <input id='inputField' 
+        value={inputText}
+        type="text"
+        onChange={handlechange}
+         />
+        <button id="AddButton" onClick={Add}>
+          <span >Send</span>
+        </button>
+    </div>
+     </div>
   );
 }
 
