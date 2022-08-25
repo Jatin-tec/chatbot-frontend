@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useEffect } from "react";
 import Chats from "./Chats";
 import "./App.css";
 function App() {
@@ -8,19 +9,20 @@ function App() {
     const Task= event.target.value;
     setInputText(Task);
   }
+  const [items, setItems]=useState([]);
   function handleKeyPress(event){
-    if(event.key === 'Enter'){
+    if(event.key === 'Enter' && document.getElementById("inputField").value.length !== 0){
       setItems(prevItems => {
         return [inputText,...prevItems];
       });
       setInputText(""); }
   }
-  const [items, setItems]=useState([]);
   function Add(){
-    setItems(prevItems => {
+
+    if(document.getElementById("inputField").value.length !== 0){setItems(prevItems => {
       return [inputText,...prevItems];
     });
-    setInputText("");
+    setInputText("");}
   }
   return (
     <div className="Main-Cointainer">
