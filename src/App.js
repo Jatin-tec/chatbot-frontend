@@ -8,7 +8,13 @@ function App() {
     const Task= event.target.value;
     setInputText(Task);
   }
-  
+  function handleKeyPress(event){
+    if(event.key === 'Enter'){
+      setItems(prevItems => {
+        return [inputText,...prevItems];
+      });
+      setInputText(""); }
+  }
   const [items, setItems]=useState([]);
   function Add(){
     setItems(prevItems => {
@@ -38,8 +44,9 @@ function App() {
         value={inputText}
         type="text"
         onChange={handlechange}
+        onKeyPress={handleKeyPress}
          />
-        <button id="AddButton" onClick={Add}>
+        <button id="AddButton" onClick={Add} >
           <span >Send</span>
         </button>
     </div>
