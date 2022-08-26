@@ -13,8 +13,8 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import SmartToyIcon from '@mui/icons-material/SmartToy';
-const pages = ['Homepage', 'Chat', 'Getapi'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['Homepage', 'Chat', 'Integrate'];
+const settings = ['Profile', 'Appointments', 'Previous report ', 'Logout'];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);

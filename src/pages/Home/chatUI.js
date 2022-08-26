@@ -1,11 +1,12 @@
 import React from 'react'
-
-export default function HomePage() {
-    return (
+import { useState } from 'react';
+import Chats from './Chats';
+export default function ChatUI() {
     const [inputText, setInputText] = useState("");
     const [botInputText, setBotInputText] = useState("");
     const [items, setItems] = useState([]);
     const [botItems, setBotItems] = useState([]);
+
     function handlechange(event) {
         const Task = event.target.value;
         setInputText(Task);
@@ -39,6 +40,8 @@ export default function HomePage() {
 
         }
     }
+
+
     return (
         <div className="Main-Cointainer">
             <div className="Content">
@@ -83,6 +86,6 @@ export default function HomePage() {
             </div>
         </div>
     );
-  
-  )
+
+
 }

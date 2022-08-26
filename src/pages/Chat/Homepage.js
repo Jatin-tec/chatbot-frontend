@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from '@mui/material/Button';
 import ChatIcon from '@mui/icons-material/Chat';
 import HomeIcon from '@mui/icons-material/Home';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -8,16 +9,20 @@ export default function Homepage() {
   return (
     <div className='HomepageCointainer'>
       <ResponsiveAppBar />
+      <h2 className='MainHeading'>Templates</h2>
       <div className="BottomCointainer">
 
-        <aside className="Shrink">
-          <div className="LeftCointainer">
+        <div className='First' >
+          <div className='FirstContent'>
+            <div className='Heading'>Covid-19</div>
 
           </div>
-        </aside>
-        <main className="RightContainer">
+          <div className="new">Chatbot to detect the Covid-19 based on the patient symptoms.</div>
+          <div className='filler'></div>
+          <div className='TestButton'>
+            <Button variant="contained">Test</Button>
+          </div></div>
 
-        </main>
       </div>
     </div>
   )
